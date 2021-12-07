@@ -8,11 +8,11 @@ class Bird {
       x: this.startX,
       y: this.startY,
       z: this.startZ,
-      rotationX: -45,
+      rotationX: 45,
       rotationY: random(0, 45),
       rotationZ: random(0, 45),
     });
-    marker1.add(this.container);
+    staticContainer.addChild(this.container);
 
     let birdTypes = ["bird0", "bird1"];
     let birdType = birdTypes[int(random(0, birdTypes.length))];
