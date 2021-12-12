@@ -22,6 +22,8 @@ let rain = false;
 let scared = false;
 let scaredBuffer = 0;
 
+let snail;
+
 function setup() {
   // create our world (this also creates a p5 canvas for us)
   world = new World("ARScene");
@@ -71,6 +73,8 @@ function setup() {
     new Bird(random(-1, 1), random(0, 2), random(-1, 1)),
   ];
 
+  snail = new Snail(-1, -1, 1);
+
   world.scene.appendChild(staticContainer.tag);  
 
   //Connect mic
@@ -92,6 +96,7 @@ function setup() {
   speechRec.start();
 }
 
+
 function draw() {
   for (let i = 0; i < birds.length; i++) {
     //birds[i].move();
@@ -110,4 +115,6 @@ function draw() {
       scared = false;
     }
   }
+
+  snail.move(rain);
 }
