@@ -16,6 +16,12 @@ let marker1, marker2;
 // a static container that represents some graphics that we always want visible to our users
 let staticContainer;
 
+let mic;
+let speechRec;
+let rain = false;
+let scared = false;
+let scaredBuffer = 0;
+
 function setup() {
   // create our world (this also creates a p5 canvas for us)
   world = new World("ARScene");
@@ -65,11 +71,43 @@ function setup() {
     new Bird(random(-1, 1), random(0, 2), random(-1, 1)),
   ];
 
-  world.scene.appendChild(staticContainer.tag);
+  world.scene.appendChild(staticContainer.tag);  
+
+  //Connect mic
+  userStartAudio();
+  mic = new p5.AudioIn();
+  mic.start();
+  //mic.connect();
+
+  //Connect Speech Recognition
+  speechRec = new p5.SpeechRec('en-US');
+  speechRec.continuous = true;
+  //Listens for word 'rain' and toggles rain boolean
+  speechRec.onResult = function () {
+    if(speechRec.resultString.toLowerCase().indexOf('rain') >= 0){
+      rain = !rain;
+      console.log("rain: " + rain);
+    }
+  }
+  speechRec.start();
 }
 
 function draw() {
   for (let i = 0; i < birds.length; i++) {
     //birds[i].move();
+  }
+
+  //Listen for volume, if > 0.5 then birds/butterflies will become scared for ~10 seconds?
+  if(mic.getLevel() > 0.5 && scared == false){
+    scared = true;
+    scaredBuffer = 10;
+    console.log("kinda loud");
+  }
+  //Assuming frame rate is ~24
+  if(scaredBuffer > 0 && frameCount % 24 == 0){
+    scaredBuffer--;
+    if(scaredBuffer == 0){
+      scared = false;
+    }
   }
 }
