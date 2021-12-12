@@ -18,9 +18,12 @@
     <script src="https://craignyu.github.io/aframep5-ar/libraries/aframep5_ar-v0.4.js"></script>
 
     <!-- p5 Sound library -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"
-    integrity="sha512-WzkwpdWEMAY/W8WvP9KS2/VI6zkgejR4/KTxTl4qHx0utqeyVE0JY+S1DlMuxDChC7x0oXtk/ESji6a0lP/Tdg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"
+      integrity="sha512-WzkwpdWEMAY/W8WvP9KS2/VI6zkgejR4/KTxTl4qHx0utqeyVE0JY+S1DlMuxDChC7x0oXtk/ESji6a0lP/Tdg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
 
     <!-- p5 Speec Recognition Library -->
     <script src="js/lib/p5.speech.js"></script>
@@ -28,8 +31,9 @@
     <script src="js/bird.js"></script>
     <script src="js/flower.js"></script>
     <script src="js/garden.js"></script>
-    <script src="js/sketch.js"></script>
     <script src="js/snail.js"></script>
+    <script src="js/controls.js"></script>
+    <script src="js/sketch.js"></script>
   </head>
 
   <body style="margin: 0px; overflow: hidden">
@@ -67,15 +71,8 @@
           src="images/pink_bird/pink_bird.vox.mtl"
         ></a-asset>
 
-        <a-asset 
-          id="snail_obj"
-          src="images/snail/snail3D.obj"
-        ></a-asset>
-        <a-assets
-          id="snail_mtl"
-          src="images/snail/snail3D.mtl"
-        ></a-assets>
-        
+        <a-asset id="snail_obj" src="images/snail/snail3D.obj"></a-asset>
+        <a-assets id="snail_mtl" src="images/snail/snail3D.mtl"></a-assets>
       </a-assets>
 
       <!-- default camera entity (leave this and don't change it) -->

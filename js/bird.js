@@ -4,6 +4,8 @@ class Bird {
     this.startY = y;
     this.startZ = z;
 
+    this.scale = random(0.15, 0.2);
+
     this.container = new Container3D({
       x: this.startX,
       y: this.startY,
@@ -23,9 +25,9 @@ class Bird {
       x: 0,
       y: 0,
       z: 0,
-      scaleX: 0.25,
-      scaleY: 0.25,
-      scaleZ: 0.25,
+      scaleX: this.scale,
+      scaleY: this.scale,
+      scaleZ: this.scale,
     });
     this.container.add(this.asset);
 
@@ -65,15 +67,6 @@ class Bird {
       }
     }
 
-    // if (abs(currentPosition.z - this.desiredZ) > 0.3) {
-    //   if (currentPosition.z < this.desiredZ) {
-    //     zMove = this.spd + s;
-    //   } else {
-    //     zMove = -this.spd - s;
-    //   }
-    // }
-
-    //this.container.nudge(xMove, yMove, 0);
     noiseLocation += 0.001;
 
     // did we get to our destination?  if so,
