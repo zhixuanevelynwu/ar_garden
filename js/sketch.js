@@ -40,6 +40,21 @@ function setup() {
   marker1 = world.getMarker("hiro");
   marker2 = world.getMarker("zb");
 
+  marker1.addChild(
+    new OBJ({
+      asset: "shovel_obj",
+      mtl: "flower_mtl",
+      x: 0,
+      y: 0,
+      z: 0,
+      rotationX: -20,
+      rotationY: -45,
+      scaleX: 0.7,
+      scaleY: 0.7,
+      scaleZ: 0.7,
+    })
+  );
+
   /* SET UP SPEECH RECGONITION */
   //Connect mic
   userStartAudio();
