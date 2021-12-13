@@ -4,6 +4,12 @@ let marker1, marker2;
 let noiseLocation = 0;
 let staticContainer;
 let videoRepositioned = false;
+let gridWidth = 1.65;
+let gridLength = 1.65;
+let minHeight = -.5;
+let maxHeight = 1;
+let yOffset = -.8;
+let zOffset = -1;
 
 /* SPEECH VARS */
 let mic;
@@ -15,9 +21,11 @@ let scaredBuffer = 0;
 /* GARDEN */
 let garden;
 let controls = [];
-let flowers = [];
 let birds = [];
-let snail;
+let snails = [];
+
+/* ANIMAL VARS */
+let numBirdTypes = 2
 
 function setup() {
   /* SET UP THE AR WORLD */
@@ -53,12 +61,20 @@ function setup() {
 
   /* GARDEN */
   garden = new Garden();
+  /* for(let i = 0; i < 8; i++){
+    garden.addFlower();
+  } */
   birds = [
     new Bird(random(-2, 2), random(0, 0.5), random(-1, 1)),
     new Bird(random(-2, 2), random(0, 0.5), random(-1, 1)),
     new Bird(random(-2, 2), random(0, 0.5), random(-1, 1)),
   ];
-  snail = new Snail(-1, -0.8, 1);
+  snails = [
+    new Snail(random(-1, 1), yOffset, random(-1, 1)),
+    new Snail(random(-1, 1), yOffset, random(-1, 1)),
+    new Snail(random(-1, 1), yOffset, random(-1, 1))
+  ]
+  snail = 
   controls = [new sunControl(), new flowerControl(), new treeControl()];
 }
 
@@ -87,8 +103,8 @@ function draw() {
     scaredBuffer = 10;
     console.log("kinda loud");
   }
-  //Assuming frame rate is ~24
-  if (scaredBuffer > 0 && frameCount % 24 == 0) {
+  //Assuming frame rate is ~30
+  if (scaredBuffer > 0 && frameCount % 30 == 0) {
     scaredBuffer--;
     if (scaredBuffer == 0) {
       scared = false;
@@ -101,5 +117,10 @@ function draw() {
   }
 
   /* GARDEN */
-  snail.move(rain);
+  for(snail of snails){
+    snail.move();
+  }
+  for(bird of birds){
+    bird.move();
+  }
 }
