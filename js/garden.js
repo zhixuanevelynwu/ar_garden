@@ -80,7 +80,7 @@ class Garden {
   addTree() {
     if (this.trees.length < 20) {
       let treeX = random(-1.5, 1.5);
-      let treeY = 0;
+      let treeY = 0.05;
       let treeZ = random(-1, 1);
       let treeScale = random(0.25, 0.35);
       let tree = new OBJ({
