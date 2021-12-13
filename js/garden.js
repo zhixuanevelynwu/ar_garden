@@ -115,7 +115,7 @@ class Garden {
       let treeX = random(-1.5, 1.5);
       let treeY = 0.05;
       let treeZ = random(-1, 1);
-      let treeScale = random(0.25, 0.35);
+      let treeScale = random(0.5, 0.6);
       let tree = new OBJ({
         asset: "tree_obj",
         mtl: "tree_mtl",
