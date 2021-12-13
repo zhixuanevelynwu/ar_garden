@@ -6,9 +6,9 @@ let staticContainer;
 let videoRepositioned = false;
 let gridWidth = 1.65;
 let gridLength = 1.65;
-let minHeight = -.5;
+let minHeight = -0.5;
 let maxHeight = 1;
-let yOffset = -.8;
+let yOffset = -0.8;
 let zOffset = -1;
 
 /* SPEECH VARS */
@@ -25,7 +25,7 @@ let birds = [];
 let snails = [];
 
 /* ANIMAL VARS */
-let numBirdTypes = 2
+let numBirdTypes = 2;
 
 function setup() {
   /* SET UP THE AR WORLD */
@@ -72,10 +72,13 @@ function setup() {
   snails = [
     new Snail(random(-1, 1), yOffset, random(-1, 1)),
     new Snail(random(-1, 1), yOffset, random(-1, 1)),
-    new Snail(random(-1, 1), yOffset, random(-1, 1))
-  ]
-  snail = 
-  controls = [new sunControl(), new flowerControl(), new treeControl()];
+    new Snail(random(-1, 1), yOffset, random(-1, 1)),
+  ];
+  snail = controls = [
+    new flower1Control(),
+    new flower0Control(),
+    new treeControl(),
+  ];
 }
 
 function draw() {
@@ -117,10 +120,10 @@ function draw() {
   }
 
   /* GARDEN */
-  for(snail of snails){
+  for (snail of snails) {
     snail.move();
   }
-  for(bird of birds){
+  for (bird of birds) {
     bird.move();
   }
 }

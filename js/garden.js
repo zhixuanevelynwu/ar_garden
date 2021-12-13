@@ -33,43 +33,69 @@ class Garden {
     this.container.add(this.ground);
   }
 
-  addFlower() {
-    let flowerX = random(-1, 1);
-    let flowerY = 0;
-    let flowerZ = random(1, 3);
-    let flowerScale = random(0.1, 0.15);
-    let flower = new OBJ({
-      asset: "flower_obj",
-      mtl: "flower_mtl",
-      x: flowerX,
-      y: flowerY,
-      z: flowerZ,
-      rotationX: 20,
-      scaleX: flowerScale,
-      scaleY: flowerScale,
-      scaleZ: flowerScale,
-    });
-    append(this.flowers, flower);
-    this.container.add(flower);
+  addFlower0() {
+    if (this.flowers.length < 40) {
+      let flowerX = random(-1, 1);
+      let flowerY = 0;
+      let flowerZ = random(0, 2.8);
+      let flowerScale = random(0.1, 0.13);
+      let flower = new OBJ({
+        asset: "flower_obj",
+        mtl: "flower_mtl",
+        x: flowerX,
+        y: flowerY,
+        z: flowerZ,
+        rotationX: 20,
+        scaleX: flowerScale,
+        scaleY: flowerScale,
+        scaleZ: flowerScale,
+      });
+      append(this.flowers, flower);
+      this.container.add(flower);
+    }
+  }
+
+  addFlower1() {
+    if (this.flowers.length < 40) {
+      let flowerX = random(-1.5, 1.5);
+      let flowerY = 0;
+      let flowerZ = random(0, 2.8);
+      let flowerScale = random(0.08, 0.13);
+      let flower = new OBJ({
+        asset: "flower1_obj",
+        mtl: "flower1_mtl",
+        x: flowerX,
+        y: flowerY,
+        z: flowerZ,
+        rotationX: 20,
+        scaleX: flowerScale,
+        scaleY: flowerScale,
+        scaleZ: flowerScale,
+      });
+      append(this.flowers, flower);
+      this.container.add(flower);
+    }
   }
 
   addTree() {
-    let treeX = random(-1.5, 1.5);
-    let treeY = 0;
-    let treeZ = random(-1, 1);
-    let treeScale = random(0.25, 0.35);
-    let tree = new OBJ({
-      asset: "tree_obj",
-      mtl: "tree_mtl",
-      x: treeX,
-      y: treeY,
-      z: treeZ,
-      rotationX: 20,
-      scaleX: treeScale,
-      scaleY: treeScale,
-      scaleZ: treeScale,
-    });
-    append(this.trees, tree);
-    this.container.add(tree);
+    if (this.trees.length < 20) {
+      let treeX = random(-1.5, 1.5);
+      let treeY = 0;
+      let treeZ = random(-1, 1);
+      let treeScale = random(0.25, 0.35);
+      let tree = new OBJ({
+        asset: "tree_obj",
+        mtl: "tree_mtl",
+        x: treeX,
+        y: treeY,
+        z: treeZ,
+        rotationX: 20,
+        scaleX: treeScale,
+        scaleY: treeScale,
+        scaleZ: treeScale,
+      });
+      append(this.trees, tree);
+      this.container.add(tree);
+    }
   }
 }

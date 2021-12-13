@@ -95,7 +95,7 @@ class treeControl extends Control {
   }
 }
 
-class flowerControl extends Control {
+class flower0Control extends Control {
   constructor(x = 0, y = 1.25, z = -1.5) {
     super(x, y, z);
     this.name = "plant flower";
@@ -131,15 +131,15 @@ class flowerControl extends Control {
   }
 
   effect() {
-    garden.addFlower();
+    garden.addFlower0();
   }
 }
 
-class sunControl extends Control {
+class flower1Control extends Control {
   constructor(x = 1.5, y = 1.25, z = -1.5) {
     super(x, y, z);
-    this.name = "get sunlight";
-    this.color = [255, 255, 100];
+    this.name = "purple flower";
+    this.color = [100, 168, 232];
     this.button = new Box({
       x: 0,
       y: 0,
@@ -168,5 +168,9 @@ class sunControl extends Control {
     });
     this.container.addChild(this.glow);
     this.glow.hide();
+  }
+
+  effect() {
+    garden.addFlower1();
   }
 }
