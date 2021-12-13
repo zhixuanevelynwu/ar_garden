@@ -31,6 +31,38 @@ class Garden {
       opacity: 0.5,
     });
     this.container.add(this.ground);
+
+    this.rain = [];
+    for(let i = 0; i < 100; i++){
+      let b = new Box({
+        x: random(-(this.groundW/2), this.groundW/2),
+        y: random(minHeight, 2.25),
+        z: random(-(this.groundD/2), this.groundD/2),
+        width: .05,
+        height: .25,
+        depth: .05,
+        opacity: 0.35,
+        red: 0,
+        green: 0,
+        blue: 128,
+        visible: false,
+      });
+      this.rain.push(b);
+      this.container.add(b);
+    }
+    this.sky = new Cylinder({
+      x: 0,
+      y: 2.5,
+      z: 0,
+      radius: this.groundW/1.5,
+      height:.1,
+      red: 128,
+      green: 128,
+      blue: 128,
+      opacity: 0.5,
+      visible: false,
+    });
+    this.container.add(this.sky);
   }
 
   addFlower0() {
@@ -96,6 +128,24 @@ class Garden {
       });
       append(this.trees, tree);
       this.container.add(tree);
+    }
+  }
+
+  toggleRain() {
+    if(rain){
+      for(let drop of this.rain){
+        this.sky.show();
+        drop.show();
+        drop.nudge(0, -0.01, 0);
+        if(drop.y < 0){
+          drop.y = 2.25;
+        }
+      }
+    } else {
+      for(let drop of this.rain){
+        this.sky.hide();
+        drop.hide();
+      }
     }
   }
 }

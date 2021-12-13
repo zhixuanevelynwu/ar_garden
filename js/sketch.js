@@ -89,7 +89,7 @@ function setup() {
     new Snail(random(-1, 1), yOffset, random(-1, 1)),
     new Snail(random(-1, 1), yOffset, random(-1, 1)),
   ];
-  snail = controls = [
+  controls = [
     new flower1Control(),
     new flower0Control(),
     new treeControl(),
@@ -135,10 +135,13 @@ function draw() {
   }
 
   /* GARDEN */
-  for (snail of snails) {
+  for (let snail of snails) {
     snail.move();
   }
-  for (bird of birds) {
+  for (let bird of birds) {
     bird.move();
   }
+  
+  garden.toggleRain();
+  
 }
