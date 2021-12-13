@@ -1,6 +1,7 @@
 class Garden {
   constructor(x = 0, y = -1, z = -1) {
     this.flowers = [];
+    this.trees = [];
 
     this.x = x;
     this.y = y;
@@ -50,5 +51,25 @@ class Garden {
     });
     append(this.flowers, flower);
     this.container.add(flower);
+  }
+
+  addTree() {
+    let treeX = random(-1.5, 1.5);
+    let treeY = 0;
+    let treeZ = random(-1, 1);
+    let treeScale = random(0.25, 0.35);
+    let tree = new OBJ({
+      asset: "tree_obj",
+      mtl: "tree_mtl",
+      x: treeX,
+      y: treeY,
+      z: treeZ,
+      rotationX: 20,
+      scaleX: treeScale,
+      scaleY: treeScale,
+      scaleZ: treeScale,
+    });
+    append(this.trees, tree);
+    this.container.add(tree);
   }
 }

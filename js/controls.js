@@ -89,6 +89,10 @@ class treeControl extends Control {
     this.container.addChild(this.glow);
     this.glow.hide();
   }
+
+  effect() {
+    garden.addTree();
+  }
 }
 
 class flowerControl extends Control {
