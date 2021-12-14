@@ -32,34 +32,71 @@ class Garden {
     });
     this.container.add(this.ground);
 
+    this.dirt1 = new OBJ({
+      asset: "garden1_obj",
+      mtl: "garden1_mtl",
+      x: 1,
+      y: 0.01,
+      z: 1
+    });
+    this.container.add(this.dirt1);
+
+    this.dirt2 = new OBJ({
+      asset: "garden2_obj",
+      mtl: "garden2_mtl",
+      x: -1,
+      y: 0.01,
+      z: -1
+    });
+    this.container.add(this.dirt2);
+
+    this.dirt3 = new OBJ({
+      asset: "garden3_obj",
+      mtl: "garden3_mtl",
+      x: 1,
+      y: 0.01,
+      z: -1
+    });
+    this.container.add(this.dirt3);
+
+    this.dirt4 = new OBJ({
+      asset: "garden4_obj",
+      mtl: "garden4_mtl",
+      x: -1,
+      y: 0.01,
+      z: 1
+    });
+    this.container.add(this.dirt4);
+
     this.rain = [];
-    for(let i = 0; i < 100; i++){
+    for (let i = 0; i < 100; i++) {
       let b = new Box({
-        x: random(-(this.groundW/2), this.groundW/2),
+        x: random(-(this.groundW / 2), this.groundW / 2),
         y: random(minHeight, 2.25),
-        z: random(-(this.groundD/2), this.groundD/2),
-        width: .05,
-        height: .25,
-        depth: .05,
-        opacity: 0.35,
-        red: 0,
-        green: 0,
-        blue: 128,
+        z: random(-(this.groundD / 2), this.groundD / 2),
+        width: 0.02,
+        height: 0.07,
+        depth: 0.01,
+        opacity: 0.5,
+        red: 145,
+        green: 180,
+        blue: 237,
         visible: false,
       });
       this.rain.push(b);
       this.container.add(b);
     }
-    this.sky = new Cylinder({
+    this.sky = new Box({
       x: 0,
       y: 2.5,
       z: 0,
-      radius: this.groundW/1.5,
-      height:.1,
+      width: this.groundW,
+      height: this.groundH,
+      depth: this.groundD,
       red: 128,
       green: 128,
       blue: 128,
-      opacity: 0.5,
+      opacity: 0.2,
       visible: false,
     });
     this.container.add(this.sky);
@@ -114,7 +151,7 @@ class Garden {
       let treeX = random(-1.5, 1.5);
       let treeY = 0.05;
       let treeZ = random(-1, 1);
-      let treeScale = random(0.25, 0.35);
+      let treeScale = random(0.5, 0.6);
       let tree = new OBJ({
         asset: "tree_obj",
         mtl: "tree_mtl",
@@ -132,17 +169,17 @@ class Garden {
   }
 
   toggleRain() {
-    if(rain){
-      for(let drop of this.rain){
+    if (rain) {
+      for (let drop of this.rain) {
         this.sky.show();
         drop.show();
         drop.nudge(0, -0.01, 0);
-        if(drop.y < 0){
+        if (drop.y < 0) {
           drop.y = 2.25;
         }
       }
     } else {
-      for(let drop of this.rain){
+      for (let drop of this.rain) {
         this.sky.hide();
         drop.hide();
       }
