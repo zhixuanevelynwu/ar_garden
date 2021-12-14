@@ -111,7 +111,7 @@ class Garden {
         this.selectedBox = 2;
         selectedBoxMinX = 0;
         selectedBoxMaxX = 1.75;
-        selectedBoxMinZ = -1.5;
+        selectedBoxMinZ = -1.25;
         selectedBoxMaxZ = 0;
       },
       visible: false,
@@ -134,7 +134,7 @@ class Garden {
         this.selectedBox = 3;
         selectedBoxMinX = -1.75;
         selectedBoxMaxX = 0;
-        selectedBoxMinZ = -1.5;
+        selectedBoxMinZ = -1.25;
         selectedBoxMaxZ = 0;
       },
       visible: false,
