@@ -167,10 +167,10 @@ class Garden {
     dirtBoxes.push(this.dirt4Box);
 
     this.selectedBox = 1;
-    selectedBoxMinX = 0;
-    selectedBoxMaxX = 1;
+    selectedBoxMinX = -1.75;
+    selectedBoxMaxX = 0;
     selectedBoxMinZ = 0;
-    selectedBoxMaxZ = 1;
+    selectedBoxMaxZ = 1.75;
     dirtBoxes[3].show();
     dirtBoxes[0].hide();
     dirtBoxes[1].hide();
