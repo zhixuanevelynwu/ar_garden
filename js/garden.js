@@ -256,9 +256,9 @@ class Garden {
 
   addTree() {
     if (this.trees.length < 20) {
-      let flowerX = random(selectedBoxMinX, selectedBoxMaxX);
-      let flowerY = 0.05;
-      let flowerZ = random(selectedBoxMinZ, selectedBoxMaxZ);
+      let treeX = random(selectedBoxMinX, selectedBoxMaxX);
+      let treeY = 0.05;
+      let treeZ = random(selectedBoxMinZ, selectedBoxMaxZ);
       let treeScale = random(0.5, 0.6);
       let tree = new OBJ({
         asset: "tree_obj",
