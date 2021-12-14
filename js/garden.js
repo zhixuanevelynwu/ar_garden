@@ -101,7 +101,7 @@ class Garden {
       y: 0,
       z: -1,
       width: 2,
-      height: .5,
+      height: 1,
       depth: 2,
       clickFunction: function (e) {
         dirtBoxes[2].show();
@@ -124,7 +124,7 @@ class Garden {
       y: 0,
       z: -1,
       width: 2,
-      height: .5,
+      height: 1,
       depth: 2,
       clickFunction: function (e) {
         dirtBoxes[1].show();
